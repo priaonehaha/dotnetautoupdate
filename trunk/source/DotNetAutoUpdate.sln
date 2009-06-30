@@ -9,28 +9,56 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAutoUpdateApi.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAutoUpdate.Tests", "DotNetAutoUpdate.Tests\DotNetAutoUpdate.Tests.csproj", "{86E2598B-1D93-4C48-84F8-677EB3E15178}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nunit-gui.exe_VS2005", "..\dependencies\NUnit\src\GuiRunner\nunit-gui-exe\nunit-gui.exe_VS2005.csproj", "{AAB186A4-FA3D-404D-AD78-7EB5BB861655}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug2005|Any CPU = Debug2005|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Release2005|Any CPU = Release2005|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
 		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}.Release2005|Any CPU.Build.0 = Release|Any CPU
 		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
 		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{95E3F5FF-3196-4A88-80C1-B90EC753748D}.Release2005|Any CPU.Build.0 = Release|Any CPU
 		{B2560A62-C144-4B75-B730-952677328254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2560A62-C144-4B75-B730-952677328254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2560A62-C144-4B75-B730-952677328254}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2560A62-C144-4B75-B730-952677328254}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
 		{B2560A62-C144-4B75-B730-952677328254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2560A62-C144-4B75-B730-952677328254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2560A62-C144-4B75-B730-952677328254}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{B2560A62-C144-4B75-B730-952677328254}.Release2005|Any CPU.Build.0 = Release|Any CPU
 		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
 		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{86E2598B-1D93-4C48-84F8-677EB3E15178}.Release2005|Any CPU.Build.0 = Release|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Debug|Any CPU.ActiveCfg = Debug2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Debug|Any CPU.Build.0 = Debug2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Debug2005|Any CPU.ActiveCfg = Debug2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Debug2005|Any CPU.Build.0 = Debug2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Release|Any CPU.ActiveCfg = Release2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Release|Any CPU.Build.0 = Release2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Release2005|Any CPU.ActiveCfg = Release2005|Any CPU
+		{AAB186A4-FA3D-404D-AD78-7EB5BB861655}.Release2005|Any CPU.Build.0 = Release2005|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
