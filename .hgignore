@@ -1,0 +1,8 @@
+glob:trunk/output/Debug
+glob:trunk/output/Release
+glob:trunk/source/DotNetAutoUpdate.Tests/obj
+glob:trunk/source/DotNetAutoUpdate.suo
+glob:trunk/source/DotNetAutoUpdate/DotNetAutoUpdate.csproj.user
+glob:trunk/source/DotNetAutoUpdate/obj
+glob:trunk/source/DotNetAutoUpdateApi/obj
+glob:trunk/source/DotNetAutoUpdateApi.Tests/obj
