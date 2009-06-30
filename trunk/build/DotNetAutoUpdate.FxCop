@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="DotNetAutoUpdate FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">http://www.gotdotnet.com/team/fxcop//xsl/1.35/FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-AU" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="False" BreaksBuild="True" />
+    <Rule Name="AvoidEmptyInterfaces" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidExcessiveParametersOnGenericTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidOutParameters" Enabled="True" BreaksBuild="True" />
+    <Rule Name="CollectionsShouldImplementGenericInterface" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DeclareEventHandlersCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DeclareTypesInNamespaces" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DefaultParametersShouldNotBeUsed" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DefineAccessorsForAttributeArguments" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotCatchGeneralExceptionTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotDeclareProtectedMembersInSealedTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotDeclareVirtualMembersInSealedTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotDeclareVisibleInstanceFields" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotExposeGenericLists" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotHideBaseClassMethods" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotOverloadOperatorEqualsOnReferenceTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotPassTypesByReference" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="True" BreaksBuild="True" />
+    <Rule Name="EnumeratorsShouldBeStronglyTyped" Enabled="True" BreaksBuild="True" />
+    <Rule Name="EnumsShouldHaveZeroValue" Enabled="True" BreaksBuild="True" />
+    <Rule Name="EnumStorageShouldBeInt32" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ExceptionsShouldBePublic" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ICollectionImplementationsHaveStronglyTypedMembers" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ImplementIDisposableCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ImplementStandardExceptionConstructors" Enabled="True" BreaksBuild="True" />
+    <Rule Name="IndexersShouldNotBeMultidimensional" Enabled="True" BreaksBuild="True" />
+    <Rule Name="InterfaceMethodsShouldBeCallableByChildTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ListsAreStronglyTyped" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAssembliesWithAssemblyVersion" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAssembliesWithClsCompliant" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAssembliesWithComVisible" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAttributesWithAttributeUsage" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkEnumsWithFlags" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MembersShouldNotExposeCertainConcreteTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MovePInvokesToNativeMethodsClass" Enabled="True" BreaksBuild="True" />
+    <Rule Name="NestedTypesShouldNotBeVisible" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverloadOperatorEqualsOnOverloadingAddAndSubtract" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverrideMethodsOnComparableTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="PropertiesShouldNotBeWriteOnly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ProvideObsoleteAttributeMessage" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ReplaceRepetitiveArgumentsWithParamsArray" Enabled="True" BreaksBuild="True" />
+    <Rule Name="StaticHolderTypesShouldBeSealed" Enabled="True" BreaksBuild="True" />
+    <Rule Name="StaticHolderTypesShouldNotHaveConstructors" Enabled="True" BreaksBuild="True" />
+    <Rule Name="StringUriOverloadsCallSystemUriOverloads" Enabled="True" BreaksBuild="True" />
+    <Rule Name="TypesShouldNotExtendCertainBaseTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="True" BreaksBuild="True" />
+    <Rule Name="TypesThatOwnNativeResourcesShouldBeDisposable" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UriParametersShouldNotBeStrings" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UriPropertiesShouldNotBeStrings" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UriReturnValuesShouldNotBeStrings" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseEventsWhereAppropriate" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseGenericEventHandlerInstances" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseGenericsWhereAppropriate" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseIntegralOrStringArgumentForIndexers" Enabled="True" BreaksBuild="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AvoidExcessiveLocals" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidUncalledPrivateCode" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidUninstantiatedInternalClasses" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidUnsealedAttributes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="AvoidUnusedPrivateFields" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotCastUnnecessarily" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAssembliesWithNeutralResourcesLanguage" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverrideEqualsAndOperatorEqualsOnValueTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="PreferJaggedArraysOverMultidimensional" Enabled="True" BreaksBuild="True" />
+    <Rule Name="PropertiesShouldNotReturnArrays" Enabled="True" BreaksBuild="True" />
+    <Rule Name="RemoveEmptyFinalizers" Enabled="True" BreaksBuild="True" />
+    <Rule Name="TestForEmptyStringsUsingStringLength" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseLiteralsWhereAppropriate" Enabled="True" BreaksBuild="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" AllRulesBreakBuild="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AttributeStringLiteralsShouldParseCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="CallBaseClassMethodsOnISerializableTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="CallGCSuppressFinalizeCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="CollectionPropertiesShouldBeReadOnly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DisposableFieldsShouldBeDisposed" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DisposableTypesShouldDeclareFinalizer" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotCallOverridableMethodsInConstructors" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotDecreaseInheritedMemberVisibility" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotIgnoreMethodResults" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotMarkEnumsWithFlags" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotMarkServicedComponentsWithWebMethod" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotRaiseExceptionsInExceptionClauses" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotRaiseReservedExceptionTypes" Enabled="True" BreaksBuild="True" />
+    <Rule Name="DoNotShipUnreleasedResourceFormats" Enabled="True" BreaksBuild="True" />
+    <Rule Name="FinalizersShouldBeProtected" Enabled="True" BreaksBuild="True" />
+    <Rule Name="FinalizersShouldCallBaseClassFinalizer" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ImplementISerializableCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ImplementSerializationConstructors" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ImplementSerializationMethodsCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="InitializeValueTypeStaticFieldsInline" Enabled="True" BreaksBuild="True" />
+    <Rule Name="InstantiateArgumentExceptionsCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkAllNonSerializableFields" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkISerializableTypesWithSerializable" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MarkWindowsFormsEntryPointsWithStaThread" Enabled="True" BreaksBuild="True" />
+    <Rule Name="MembersShouldDifferByMoreThanReturnType" Enabled="True" BreaksBuild="True" />
+    <Rule Name="NonConstantFieldsShouldNotBeVisible" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OperationsShouldNotOverflow" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OperatorOverloadsHaveNamedAlternates" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OperatorsShouldHaveSymmetricalOverloads" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverloadOperatorEqualsOnOverridingValueTypeEquals" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverrideEqualsOnOverloadingOperatorEquals" Enabled="True" BreaksBuild="True" />
+    <Rule Name="OverrideGetHashCodeOnOverridingEquals" Enabled="True" BreaksBuild="True" />
+    <Rule Name="PassSystemUriObjectsInsteadOfStrings" Enabled="True" BreaksBuild="True" />
+    <Rule Name="ProvideDeserializationMethodsForOptionalFields" Enabled="True" BreaksBuild="True" />
+    <Rule Name="RethrowToPreserveStackDetails" Enabled="True" BreaksBuild="True" />
+    <Rule Name="TestForNaNCorrectly" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseManagedEquivalentsOfWin32Api" Enabled="True" BreaksBuild="True" />
+    <Rule Name="UseParamsForVariableArguments" Enabled="True" BreaksBuild="True" />
+   </RuleFile>
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36" />
+</FxCopProject>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project name="DotNetAutoUpdate" default="build">
+
+    <property name="Configuration" value="Release" />
+    <property name="BaseLocation" value="${project::get-base-directory()}"/>
+    <property name="BuildLocation" value="${project::get-base-directory()}\Build"/>
+    <property name="OutputLocation" value="${project::get-base-directory()}\Output\${Configuration}" />
+
+    <property name="MSBuild-Location" value="C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe" />
+    <property name="NUnitConsole-Location" value="${project::get-base-directory()}\dependencies\NUnit 2.4.6\bin\nunit-console.exe" />
+    <property name="NCover-Location" value="${project::get-base-directory()}\dependencies\NCover\NCover.Console.exe" />
+    <property name="NCoverExplorer-Location" value="${project::get-base-directory()}\dependencies\NCoverExplorer\NCoverExplorer.exe" />
+    <property name="NCoverExplorerConsole-Location" value="${project::get-base-directory()}\dependencies\NCoverExplorer\NCoverExplorer.Console.exe" />
+    <property name="FxCop-Location" value="${project::get-base-directory()}\dependencies\FxCop\fxcopcmd.exe" />
+
+    <target name="build" depends="compile-code, unit-tests, ensure-100percent-coverage, fxcop" />
+
+    <target name="compile-code">
+        <exec program="${MSBuild-Location}">
+            <arg value="/t:Rebuild" />
+            <arg value="Source\DotNetAutoUpdate.sln" />
+            <arg value="/p:Configuration=${Configuration}" />
+        </exec>
+    </target>
+
+    <target name="fxcop">
+        <exec program="${FxCop-Location}" workingdir="${OutputLocation}">
+            <arg value="/console" />
+            <arg value="/project:${BuildLocation}\DotNetAutoUpdate.fxcop" />
+            <arg value="/out:${OutputLocation}\FxCop.xml" />
+            <arg value="/file:${OutputLocation}\DotNetAutoUpdate.dll" />
+            <arg value="/file:${OutputLocation}\DotNetAutoUpdate.Api.dll" />
+        </exec>
+    </target>
+
+    <target name="unit-tests">
+        <exec program="${NCover-Location}" workingdir="${OutputLocation}">
+            <arg value="${NUnitConsole-Location}" />
+            <arg value="${OutputLocation}\DotNetAutoUpdate.Tests.dll" />
+            <arg value="${OutputLocation}\DotNetAutoUpdate.Api.Tests.dll" />
+            <arg value="//x &quot;${OutputLocation}\Coverage.xml&quot;" />
+            <arg value="//reg" />
+            <arg value="//ea" />
+            <arg value="DotNetAutoUpdate.CoverageExcludeAttribute" />
+        </exec>
+    </target>
+
+    <target name="ensure-100percent-coverage">
+        <exec program="${NCoverExplorerConsole-Location}" workingdir="${OutputLocation}">
+            <arg value="/config:&quot;${BuildLocation}\DotNetAutoUpdate-NCoverExplorer.config&quot;" />
+        </exec>
+    </target>
+
+    <target name="ncoverexplorer">
+        <exec program="${NCoverExplorer-Location}" workingdir="${OutputLocation}">
+            <arg value="Coverage.xml" />
+        </exec>
+    </target>
+
+    <target name="clean">
+        <delete dir="${OutputLocation}" />
+    </target>
+</project>

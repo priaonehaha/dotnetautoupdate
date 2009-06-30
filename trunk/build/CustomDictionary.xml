@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+	<Words>
+		<!-- 
+		  This is a list of case-insensitive words that exist in the dictionary
+		  but you do not want to be recognized by IdentifiersShouldBeSpelledCorrectly.
+		  Do not add deprecated terms to this list, instead add these to the 
+		  <Deprecated> section below.
+		 -->
+		<Unrecognized/>
+		
+		<!--
+		  This is a list of case-insensitive words that do not exist in the dictionary
+		  but you still want to be considered as recognized by 
+		  IdentifiersShouldBeSpelledCorrectly. Do not add compound words (e.g. 'FileName') 
+		  to this list as this will cause CompoundWordsShouldBeBeCasedCorrectly to fire on 
+		  usages of the compound word stating that they should be changed to their discrete equivalent 
+		  (for example 'FileName' -> 'Filename').
+		-->
+		<Recognized>
+			<Word>x</Word>
+			<Word>y</Word>
+		</Recognized>
+	</Words>
+</Dictionary>
