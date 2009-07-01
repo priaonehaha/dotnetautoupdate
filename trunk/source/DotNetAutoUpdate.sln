@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAutoUpdate.Tests", "DotNetAutoUpdate.Tests\DotNetAutoUpdate.Tests.csproj", "{86E2598B-1D93-4C48-84F8-677EB3E15178}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nunit-gui.exe_VS2005", "..\dependencies\NUnit\src\GuiRunner\nunit-gui-exe\nunit-gui.exe_VS2005.csproj", "{AAB186A4-FA3D-404D-AD78-7EB5BB861655}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2560A62-C144-4B75-B730-952677328254} = {B2560A62-C144-4B75-B730-952677328254}
+		{86E2598B-1D93-4C48-84F8-677EB3E15178} = {86E2598B-1D93-4C48-84F8-677EB3E15178}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

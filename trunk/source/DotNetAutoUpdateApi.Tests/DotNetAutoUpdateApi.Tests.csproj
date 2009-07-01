@@ -52,6 +52,23 @@
     <Compile Include="AutoUpdateFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetAutoUpdate.Tests\DotNetAutoUpdate.Tests.csproj">
+      <Project>{86E2598B-1D93-4C48-84F8-677EB3E15178}</Project>
+      <Name>DotNetAutoUpdate.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetAutoUpdateApi\DotNetAutoUpdateApi.csproj">
+      <Project>{95E3F5FF-3196-4A88-80C1-B90EC753748D}</Project>
+      <Name>DotNetAutoUpdateApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNetAutoUpdate\DotNetAutoUpdate.csproj">
+      <Project>{45FC2789-D0C3-4A2E-80B4-D599AECD7BBE}</Project>
+      <Name>DotNetAutoUpdate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\update-file-1.1.0.0.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
