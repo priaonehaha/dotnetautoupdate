@@ -6,3 +6,6 @@ glob:trunk/source/DotNetAutoUpdate/DotNetAutoUpdate.csproj.user
 glob:trunk/source/DotNetAutoUpdate/obj
 glob:trunk/source/DotNetAutoUpdateApi/obj
 glob:trunk/source/DotNetAutoUpdateApi.Tests/obj
+glob:trunk/dependencies/NUnit/src/GuiRunner/nunit-gui-exe/bin
+glob:trunk/dependencies/NUnit/src/GuiRunner/nunit-gui-exe/obj
+glob:trunk/source/DotNetAutoUpdate.sln.cache
