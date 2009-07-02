@@ -7,7 +7,7 @@
     <property name="OutputLocation" value="${project::get-base-directory()}\Output\${Configuration}" />
 
     <property name="MSBuild-Location" value="C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe" />
-    <property name="NUnitConsole-Location" value="${project::get-base-directory()}\dependencies\NUnit 2.4.6\bin\nunit-console.exe" />
+    <property name="NUnitConsole-Location" value="${project::get-base-directory()}\dependencies\NUnit\bin\net-2.0\nunit-console.exe" />
     <property name="NCover-Location" value="${project::get-base-directory()}\dependencies\NCover\NCover.Console.exe" />
     <property name="NCoverExplorer-Location" value="${project::get-base-directory()}\dependencies\NCoverExplorer\NCoverExplorer.exe" />
     <property name="NCoverExplorerConsole-Location" value="${project::get-base-directory()}\dependencies\NCoverExplorer\NCoverExplorer.Console.exe" />
@@ -29,7 +29,7 @@
             <arg value="/project:${BuildLocation}\DotNetAutoUpdate.fxcop" />
             <arg value="/out:${OutputLocation}\FxCop.xml" />
             <arg value="/file:${OutputLocation}\DotNetAutoUpdate.dll" />
-            <arg value="/file:${OutputLocation}\DotNetAutoUpdate.Api.dll" />
+            <arg value="/file:${OutputLocation}\DotNetAutoUpdateApi.dll" />
         </exec>
     </target>
 
@@ -37,7 +37,7 @@
         <exec program="${NCover-Location}" workingdir="${OutputLocation}">
             <arg value="${NUnitConsole-Location}" />
             <arg value="${OutputLocation}\DotNetAutoUpdate.Tests.dll" />
-            <arg value="${OutputLocation}\DotNetAutoUpdate.Api.Tests.dll" />
+            <arg value="${OutputLocation}\DotNetAutoUpdateApi.Tests.dll" />
             <arg value="//x &quot;${OutputLocation}\Coverage.xml&quot;" />
             <arg value="//reg" />
             <arg value="//ea" />
