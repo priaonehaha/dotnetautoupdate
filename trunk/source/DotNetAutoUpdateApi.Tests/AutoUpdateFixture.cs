@@ -43,6 +43,17 @@ namespace DotNetAutoUpdateApi.Tests
             Assert.That(result, Is.False);
         }
 
+        //[Test]
+        //public void Should_ignore_blob_with_invalid_signature()
+        //{
+        //    _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-1.1.0.0.xml");
+        //    _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.1.0.0");
+
+        //    var result = _autoUpdate.PendingUpdate();
+
+        //    Assert.That(result, Is.False);
+        //}
+
         [TearDown]
         public void TearDown()
         {
