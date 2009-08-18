@@ -44,7 +44,7 @@ namespace DotNetAutoUpdateTool
         private void signButton_Click(object sender, EventArgs e)
         {
             var signatureFile = inputFileTextBox.Text + ".signature";
-            var keys = new KeyPair(keyPairTextBox.Text);
+            var keys = UpdateKeys.FromStrongNameKey(keyPairTextBox.Text);
             keys.SignFile(inputFileTextBox.Text, signatureFile);
         }
     }

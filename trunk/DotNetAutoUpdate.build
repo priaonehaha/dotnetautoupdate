@@ -29,7 +29,6 @@
             <arg value="/project:${BuildLocation}\DotNetAutoUpdate.fxcop" />
             <arg value="/out:${OutputLocation}\FxCop.xml" />
             <arg value="/file:${OutputLocation}\DotNetAutoUpdate.dll" />
-            <arg value="/file:${OutputLocation}\DotNetAutoUpdateApi.dll" />
         </exec>
     </target>
 
@@ -37,7 +36,6 @@
         <exec program="${NCover-Location}" workingdir="${OutputLocation}">
             <arg value="${NUnitConsole-Location}" />
             <arg value="${OutputLocation}\DotNetAutoUpdate.Tests.dll" />
-            <arg value="${OutputLocation}\DotNetAutoUpdateApi.Tests.dll" />
             <arg value="//x &quot;${OutputLocation}\Coverage.xml&quot;" />
             <arg value="//reg" />
             <arg value="//ea" />

@@ -19,6 +19,7 @@ namespace DotNetAutoUpdate.Tests
         {
             _webServer = new WebServer(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"..\..\Source\DotNetAutoUpdate.Tests\Data")).FullName);            
             _autoUpdate = new AutoUpdate();
+            _autoUpdate.UpdateSettings.UpdateKeys = UpdateKeys.FromStrongNameKey("Data\\TestKeyPair.snk");
         }
 
         [Test]
@@ -52,6 +53,24 @@ namespace DotNetAutoUpdate.Tests
             var result = _autoUpdate.PendingUpdate();
 
             Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Should_notify_on_invalid_signature()
+        {
+            var invalidSignatureNotified = false;
+
+            _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-1.1.0.0-invalid.xml");
+            _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
+            _autoUpdate.InvalidSignatureDetected += delegate
+            {
+                invalidSignatureNotified = true;
+            };
+
+            var result = _autoUpdate.PendingUpdate();
+
+            Assert.That(result, Is.False);
+            Assert.That(invalidSignatureNotified, Is.True);
         }
 
         [TearDown]

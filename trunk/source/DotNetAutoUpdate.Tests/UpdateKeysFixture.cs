@@ -8,12 +8,12 @@ using System.IO;
 namespace DotNetAutoUpdate.Tests
 {
     [TestFixture]
-    public class KeyPairFixture
+    public class UpdateKeysFixture
     {
         [Test]
         public void Check_valid_signature()
         {
-            var keyPair = new KeyPair("Data\\TestKeyPair.snk");
+            var keyPair = UpdateKeys.FromStrongNameKey("Data\\TestKeyPair.snk");
 
             Assert.That(keyPair.IsValidSignature("Data\\TestFile.txt", "Data\\TestFile.txt.signature"), Is.True);
         }
@@ -21,7 +21,7 @@ namespace DotNetAutoUpdate.Tests
         [Test]
         public void Check_invalid_signature()
         {
-            var keyPair = new KeyPair("Data\\TestKeyPair.snk");
+            var keyPair = UpdateKeys.FromStrongNameKey("Data\\TestKeyPair.snk");
 
             Assert.That(keyPair.IsValidSignature("Data\\TestFile.txt", "Data\\Invalid.signature"), Is.False);
         }
@@ -29,7 +29,7 @@ namespace DotNetAutoUpdate.Tests
         [Test]
         public void Check_signing_file()
         {
-            var keyPair = new KeyPair("Data\\TestKeyPair.snk");
+            var keyPair = UpdateKeys.FromStrongNameKey("Data\\TestKeyPair.snk");
             var signatureFile = Path.GetTempFileName();
 
             keyPair.SignFile("Data\\TestFile.txt", signatureFile);
