@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Xml.Linq;
+using System.IO;
 
-namespace DotNetAutoUpdateApi
+namespace DotNetAutoUpdate
 {
     public class AutoUpdate
     {
@@ -18,7 +19,16 @@ namespace DotNetAutoUpdateApi
 
         public bool PendingUpdate()
         {
-            var xml = XDocument.Load(UpdateSettings.UpdatePath.AbsoluteUri);
+            var uri = UpdateSettings.UpdatePath.AbsoluteUri;
+            var signatureUri = new Uri(uri.ToString() + ".signature");
+
+            var webClient = new WebClient();
+            var rawXml = webClient.DownloadData(uri);
+            var signature = webClient.DownloadData(signatureUri);
+
+            //if (UpdateSettings.PublicKey.IsValidSignature(
+
+            var xml = XDocument.Load(new StreamReader(new MemoryStream(rawXml)));
             var rawVersion = xml
                 .Descendants("Update")
                 .Attributes("Version")

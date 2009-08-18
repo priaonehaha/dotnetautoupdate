@@ -6,7 +6,7 @@ using NUnit.Framework;
 using System.IO;
 using DotNetAutoUpdate.Tests;
 
-namespace DotNetAutoUpdateApi.Tests
+namespace DotNetAutoUpdate.Tests
 {
     [TestFixture]
     public class AutoUpdateFixture
@@ -17,7 +17,7 @@ namespace DotNetAutoUpdateApi.Tests
         [SetUp]
         public void Setup()
         {
-            _webServer = new WebServer(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"..\..\Source\DotNetAutoUpdateApi.Tests\Data")).FullName);            
+            _webServer = new WebServer(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"..\..\Source\DotNetAutoUpdate.Tests\Data")).FullName);            
             _autoUpdate = new AutoUpdate();
         }
 
@@ -43,16 +43,16 @@ namespace DotNetAutoUpdateApi.Tests
             Assert.That(result, Is.False);
         }
 
-        //[Test]
-        //public void Should_ignore_blob_with_invalid_signature()
-        //{
-        //    _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-1.1.0.0.xml");
-        //    _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.1.0.0");
+        [Test]
+        public void Should_ignore_blob_with_invalid_signature()
+        {
+            _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-1.1.0.0-invalid.xml");
+            _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
 
-        //    var result = _autoUpdate.PendingUpdate();
+            var result = _autoUpdate.PendingUpdate();
 
-        //    Assert.That(result, Is.False);
-        //}
+            Assert.That(result, Is.False);
+        }
 
         [TearDown]
         public void TearDown()
