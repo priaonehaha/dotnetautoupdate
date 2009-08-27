@@ -9,3 +9,7 @@ glob:trunk/source/DotNetAutoUpdateApi.Tests/obj
 glob:trunk/dependencies/NUnit/src/GuiRunner/nunit-gui-exe/bin
 glob:trunk/dependencies/NUnit/src/GuiRunner/nunit-gui-exe/obj
 glob:trunk/source/DotNetAutoUpdate.sln.cache
+glob:trunk/source/DotNetAutoUpdateTool/obj
+glob:trunk/source/DotNetAutoUpdate.Tests/DotNetAutoUpdate.Tests.csproj.user
+glob:trunk/source/TestInstallerApp/bin/
+glob:trunk/source/TestInstallerApp/obj/
