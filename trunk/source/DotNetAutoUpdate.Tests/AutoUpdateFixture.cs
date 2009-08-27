@@ -80,29 +80,35 @@ namespace DotNetAutoUpdate.Tests
         {
             _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-1.1.0.0.xml");
             _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
+            _autoUpdate.InvalidSignatureDetected += delegate        
+            {
+                Assert.Fail("Invalid signature detected");
+            };
+
+            using (var socketListener = new SocketListener("Hello from: AutoUpdate\r\n"))
+            {
+                var acceptResult = socketListener.Listen();
+                var updatePending = _autoUpdate.IsUpdatePending();
+                _autoUpdate.InstallPendingUpdate(_autoUpdate.PendingUpdates[0]);
+
+                Assert.That(updatePending, Is.True);
+                Assert.That(acceptResult.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(10)), Is.True, "Timed out waiting for installer to call back");
+            }
+        }
+
+        [Test]
+        public void Should_run_installer_application_with_custom_name()
+        {
+            _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-file-custom-name-1.1.0.0.xml");
+            _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
             _autoUpdate.InvalidSignatureDetected += delegate
             {
                 Assert.Fail("Invalid signature detected");
             };
 
-            using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            using (var socketListener = new SocketListener("Hello from: Custom\r\n"))
             {
-                socket.Bind(new IPEndPoint(IPAddress.Loopback, 5050));
-                socket.Listen(1);
-
-                var acceptResult = socket.BeginAccept(delegate(IAsyncResult asyncResult)
-                {
-                    var client = socket.EndAccept(asyncResult);
-
-                    using (var networkStream = new NetworkStream(client))
-                    using (var streamReader = new StreamReader(networkStream))
-                    {
-                        Assert.That(streamReader.ReadToEnd(), Is.EqualTo("Hello from test installer\r\n"));
-                    }
-
-                }, null);
-
-
+                var acceptResult = socketListener.Listen();
                 var updatePending = _autoUpdate.IsUpdatePending();
                 _autoUpdate.InstallPendingUpdate(_autoUpdate.PendingUpdates[0]);
 
@@ -114,50 +120,95 @@ namespace DotNetAutoUpdate.Tests
         [Test]
         public void Should_not_run_installer_with_invalid_sig()
         {
+            bool invalidSigDetected = false;
             _autoUpdate.UpdateSettings.UpdatePath = new Uri(_webServer.Uri, "update-invalid-file-sig-1.1.0.0.xml");
             _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
             _autoUpdate.InvalidSignatureDetected += delegate
             {
-                // Ignore, expected invalid signature detected
+                invalidSigDetected = true;
             };
 
-            using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+
+            using (var socketListener = new SocketListener(null))
             {
-                socket.Bind(new IPEndPoint(IPAddress.Loopback, 5050));
-                socket.Listen(1);
-
-                var acceptResult = socket.BeginAccept(delegate(IAsyncResult asyncResult)
-                {
-                    try
-                    {
-                        var client = socket.EndAccept(asyncResult);
-
-                        using (var networkStream = new NetworkStream(client))
-                        using (var streamReader = new StreamReader(networkStream))
-                        {
-                            Assert.Fail("Not expecting a network connection from installer");
-                        }
-                    }
-                    catch (ObjectDisposedException ex)
-                    {
-                        // Ignore, expected socket to be closed before connection
-                    }
-
-                }, null);
-
-
+                var acceptResult = socketListener.Listen();
                 var updatePending = _autoUpdate.IsUpdatePending();
                 _autoUpdate.InstallPendingUpdate(_autoUpdate.PendingUpdates[0]);
 
                 Assert.That(updatePending, Is.True);
                 Assert.That(acceptResult.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(10)), Is.False, "Expected to time out waiting for installer to call back");
-            }            
+                Assert.That(invalidSigDetected, Is.True, "Expected invalid signature");
+            }
+        }
+
+        [Test]
+        public void Should_fail_if_no_update_specified()
+        {
+            try
+            {
+                _autoUpdate.InstallPendingUpdate(null);
+
+                Assert.Fail("Expected exception");
+            }
+            catch (ArgumentNullException)
+            {
+                // Ignore, expected
+            }
         }
 
         [TearDown]
         public void TearDown()
         {
             _webServer.Dispose();
+        }
+    }
+
+    public class SocketListener : IDisposable
+    {
+        private Socket _socket;
+
+        private string _expectedText;
+
+        public SocketListener(string expectedText)
+        {
+            _expectedText = expectedText;
+        }
+
+        public bool Error { get; private set; }
+
+        public IAsyncResult Listen()
+        {
+            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _socket.Bind(new IPEndPoint(IPAddress.Loopback, 5050));
+            _socket.Listen(1);
+
+            return _socket.BeginAccept(delegate(IAsyncResult asyncResult)
+            {
+                try
+                {
+                    var client = _socket.EndAccept(asyncResult);
+
+                    using (var networkStream = new NetworkStream(client))
+                    using (var streamReader = new StreamReader(networkStream))
+                    {
+                        Assert.That(streamReader.ReadToEnd(), Is.EqualTo(_expectedText));
+                    }
+
+                }
+                catch (ObjectDisposedException)
+                {
+                    Error = true;
+                }
+
+            }, null);
+        }
+
+        public void Dispose()
+        {
+            if (_socket != null)
+            {
+                ((IDisposable) _socket).Dispose();
+            }
         }
     }
 }

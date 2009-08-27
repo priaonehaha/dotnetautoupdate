@@ -74,6 +74,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\update-file-custom-name-1.1.0.0.xml" />
     <Content Include="Data\TestInstallerApp.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -110,6 +111,9 @@
     </None>
     <None Include="Data\TestFile.txt.signature">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\update-file-custom-name-1.1.0.0.xml.signature">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\update-invalid-file-sig-1.1.0.0.xml.signature">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

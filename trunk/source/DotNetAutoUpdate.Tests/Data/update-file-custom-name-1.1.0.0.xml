@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Updates>
+  <Update
+    NewVersion="1.1.0.0"
+    UpdateFileUri="http://localhost:12345/TestInstallerApp.exe"
+    UpdateInfoUri="http://localhost:12345/"
+    InstallFileName="Custom.exe"
+    Categories="MSIL, Stable">
+    <Description>
+      A test release.
+    </Description>
+  </Update>
+</Updates>

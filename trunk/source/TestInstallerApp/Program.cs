@@ -5,6 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.IO;
 using System.Net;
+using System.Diagnostics;
 
 namespace TestInstallerApp
 {
@@ -21,7 +22,7 @@ namespace TestInstallerApp
                     using (var networkStream = new NetworkStream(socket))
                     using (var writer = new StreamWriter(networkStream))
                     {
-                        writer.WriteLine("Hello from test installer");
+                        writer.WriteLine("Hello from: " + Process.GetCurrentProcess().ProcessName);
                     }
                 }
             }

@@ -11,6 +11,7 @@ namespace DotNetAutoUpdate
     /// </summary>
     public class PendingUpdate
     {
+        [CoverageExclude("Verified by review")]
         public PendingUpdate()
         {
             Categories = new List<string>();
@@ -65,7 +66,7 @@ namespace DotNetAutoUpdate
         /// <summary>
         /// The update category. E.g. "beta", "stable", "x86", "x64", etc.
         /// </summary>
-        public ICollection<string> Categories { get; set; }
+        public ICollection<string> Categories { get; private set; }
 
         /// <summary>
         /// The description of the update.

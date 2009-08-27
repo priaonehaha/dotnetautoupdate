@@ -8,6 +8,7 @@ using System.IO;
 
 using log4net;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace DotNetAutoUpdate
 {
@@ -36,7 +37,7 @@ namespace DotNetAutoUpdate
         /// <summary>
         /// The latest detected pending update.
         /// </summary>
-        public IList<PendingUpdate> PendingUpdates { get; set; }
+        public IList<PendingUpdate> PendingUpdates { get; private set; }
 
         /// <summary>
         /// Checks to see if an update is pending on the server.
@@ -87,11 +88,11 @@ namespace DotNetAutoUpdate
             log.Info("Installing update: " + pendingUpdate);
             if (pendingUpdate == null)
             {
-                throw new InvalidOperationException("No update pending");
+                throw new ArgumentNullException("pendingUpdate", "No update pending");
             }
 
             var currentProcess = Process.GetCurrentProcess();
-            var tempDirectory = string.Format("{0}-{1}-update", currentProcess.ProcessName, currentProcess.Id);
+            var tempDirectory = string.Format(CultureInfo.InvariantCulture, "{0}-{1}-update", currentProcess.ProcessName, currentProcess.Id);
             var workingDirectory = Path.GetTempPath().PathCombine(tempDirectory);
             var installFile = pendingUpdate.InstallFileName == null
                 ? "AutoUpdate.exe"
@@ -100,7 +101,7 @@ namespace DotNetAutoUpdate
             var installPath = workingDirectory.PathCombine(installFile);
             var signatureUri = new Uri(pendingUpdate.UpdateFileUri.ToString() + ".signature");
 
-            log.Debug(string.Format("Working directory:{0} install path:{1}", workingDirectory, installPath));
+            log.Debug(string.Format(CultureInfo.InvariantCulture, "Working directory:{0} install path:{1}", workingDirectory, installPath));
             Directory.CreateDirectory(workingDirectory);
 
             // Allow other processes to read the temp file but not write it

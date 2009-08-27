@@ -20,6 +20,12 @@
 		<Recognized>
 			<Word>x</Word>
 			<Word>y</Word>
+      <Word>rsa</Word>
 		</Recognized>
 	</Words>
+  <Acronyms>
+    <CasingExceptions>
+      <Acronym>RSA</Acronym>
+    </CasingExceptions>
+  </Acronyms>
 </Dictionary>

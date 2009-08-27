@@ -20,6 +20,10 @@
   <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
   <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
  </ProjectOptions>
+ <Targets>
+   <AssemblyReferenceDirectories>
+   </AssemblyReferenceDirectories>
+ </Targets>
  <Rules>
   <RuleFiles>
    <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">

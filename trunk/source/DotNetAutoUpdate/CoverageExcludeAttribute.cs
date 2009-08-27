@@ -5,7 +5,18 @@ using System.Text;
 
 namespace DotNetAutoUpdate
 {
-    public class CoverageExcludeAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Constructor)]
+    public sealed class CoverageExcludeAttribute : Attribute
     {
+        public CoverageExcludeAttribute()
+        {
+        }
+
+        public CoverageExcludeAttribute(string message)
+        {
+            Message = message;
+        }
+
+        public string Message { get; private set; }
     }
 }

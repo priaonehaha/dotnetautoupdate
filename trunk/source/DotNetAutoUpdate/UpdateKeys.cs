@@ -20,7 +20,7 @@ namespace DotNetAutoUpdate
 
         public RSA RSA { get; private set; }
 
-        protected byte[] GetHashForFile(string inputFile)
+        protected static byte[] GetHashForFile(string inputFile)
         {
             using (var fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
@@ -28,7 +28,7 @@ namespace DotNetAutoUpdate
             }
         }
 
-        protected byte[] GetHashForStream(Stream input)
+        protected static byte[] GetHashForStream(Stream input)
         {
             var sha1 = new SHA1Managed();
             return sha1.ComputeHash(input);
