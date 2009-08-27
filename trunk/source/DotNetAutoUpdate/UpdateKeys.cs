@@ -22,25 +22,36 @@ namespace DotNetAutoUpdate
 
         protected byte[] GetHashForFile(string inputFile)
         {
-            return GetHashForBytes(File.ReadAllBytes(inputFile));
+            using (var fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                return GetHashForStream(fileStream);
+            }
         }
 
-        protected byte[] GetHashForBytes(byte[] inputBytes)
+        protected byte[] GetHashForStream(Stream input)
         {
             var sha1 = new SHA1Managed();
-            return sha1.ComputeHash(inputBytes);
+            return sha1.ComputeHash(input);
         }
 
-        public bool IsValidSignature(byte[] inputBytes, byte[] signature)
+        public bool IsValidSignature(Stream input, byte[] signature)
         {
             var signatureFormatter = new RSAPKCS1SignatureDeformatter(RSA);
             signatureFormatter.SetHashAlgorithm("SHA1");
-            return signatureFormatter.VerifySignature(GetHashForBytes(inputBytes), signature); 
+            return signatureFormatter.VerifySignature(GetHashForStream(input), signature); 
         }
 
         public bool IsValidSignature(string inputFile, string signatureFile)
         {
-            return IsValidSignature(File.ReadAllBytes(inputFile), File.ReadAllBytes(signatureFile));
+            return IsValidSignature(inputFile, File.ReadAllBytes(signatureFile));
+        }
+
+        public bool IsValidSignature(string inputFile, byte[] signature)
+        {
+            using (var fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                return IsValidSignature(fileStream, signature);
+            }
         }
 
         public void SignFile(string inputFile, string signatureFile)

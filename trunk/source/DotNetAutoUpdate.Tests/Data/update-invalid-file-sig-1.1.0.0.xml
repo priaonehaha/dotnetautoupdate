@@ -2,11 +2,11 @@
 <Updates>
   <Update
     NewVersion="1.1.0.0"
-    UpdateFileUri="http://localhost:12345/TestInstallerApp.exe"
+    UpdateFileUri="http://localhost:12345/TestInstallerAppInvalidSig.exe"
     UpdateInfoUri="http://localhost:12345/"
     Categories="MSIL, Stable">
     <Description>
-      A test release.
+      A test release with an invalid file signature.
     </Description>
   </Update>
 </Updates>

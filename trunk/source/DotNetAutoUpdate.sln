@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nunit-gui.exe_VS2005", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAutoUpdateTool", "DotNetAutoUpdateTool\DotNetAutoUpdateTool.csproj", "{AAC7316B-F6E0-4240-8432-98F23009743A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInstallerApp", "TestInstallerApp\TestInstallerApp.csproj", "{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,14 @@ Global
 		{AAC7316B-F6E0-4240-8432-98F23009743A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAC7316B-F6E0-4240-8432-98F23009743A}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
 		{AAC7316B-F6E0-4240-8432-98F23009743A}.Release2005|Any CPU.Build.0 = Release|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release2005|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
