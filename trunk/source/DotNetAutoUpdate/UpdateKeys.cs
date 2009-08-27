@@ -18,6 +18,9 @@ namespace DotNetAutoUpdate
             RSA = rsa;
         }
 
+        /// <summary>
+        /// The RSA key used to verify and if loaded with the private key details sign files.
+        /// </summary>
         public RSA RSA { get; private set; }
 
         protected static byte[] GetHashForFile(string inputFile)

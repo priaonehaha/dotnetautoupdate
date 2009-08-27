@@ -9,6 +9,9 @@ using System.Diagnostics;
 
 namespace TestInstallerApp
 {
+    /// <summary>
+    /// A test "installer" program used by DotNetAutoUpdate.Tests to verify the install process.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

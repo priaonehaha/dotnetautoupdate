@@ -146,7 +146,8 @@ namespace DotNetAutoUpdate
 
             // Run the installer
             // NOTE: There is a possible race condition here if another user somehow manages to write to the update 
-            // file before the new process starts.
+            // file before the new process starts. It would make sense to adjust the install file ACLs before releasing
+            // the lock on the file.
             log.Info("Running install file: " + installPath);
             var process = Process.Start(psi);
 
