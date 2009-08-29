@@ -23,6 +23,18 @@ namespace DotNetAutoUpdate
         /// </summary>
         public RSA RSA { get; private set; }
 
+        /// <summary>
+        /// The raw public key data.
+        /// </summary>
+        public byte[] PublicKey
+        {
+            get
+            {
+                var strongName = new StrongName(RSA);
+                return strongName.PublicKey;
+            }
+        }
+
         protected static byte[] GetHashForFile(string inputFile)
         {
             using (var fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -76,6 +88,17 @@ namespace DotNetAutoUpdate
         public static UpdateKeys FromStrongNameKey(string fileName)
         {
             var strongName = new StrongName(File.ReadAllBytes(fileName));
+            return new UpdateKeys(strongName.RSA);
+        }
+
+        /// <summary>
+        /// Loads the update keys from a byte array containing the public key data.
+        /// </summary>
+        /// <param name="publicKey">The data to load.</param>
+        /// <returns>The update keys.</returns>
+        public static UpdateKeys FromPublicKey(byte[] publicKey)
+        {
+            var strongName = new StrongName(publicKey);
             return new UpdateKeys(strongName.RSA);
         }
     }

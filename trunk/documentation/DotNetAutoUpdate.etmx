@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ThreatModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Guid>0fa86049-a125-4c99-9866-763ce08fea86</Guid>
+  <Name>DotNetAutoUpdate</Name>
+  <AttributeValues>
+    <AttributeValues />
+  </AttributeValues>
+  <Description>Threat model for the DotNetAutoUpdate project.</Description>
+  <BusinessObjectivesGroup>
+    <Guid>ea032379-1a45-47dc-9ba0-d225d4427ecc</Guid>
+    <Name>Business Objectives</Name>
+    <BusinessObjectives>
+      <BusinessObjective>
+        <Guid>bc03c0ca-45d3-41dd-a87a-4c11cfa3ab80</Guid>
+        <Name>Provide a secure automatic update service</Name>
+        <Description>Provide a secure automatic update service for .net applications. The update service should be as simple as possible for the end developer to use safely.</Description>
+      </BusinessObjective>
+    </BusinessObjectives>
+  </BusinessObjectivesGroup>
+  <ApplicationDecompositionGroup>
+    <Guid>8f797f27-50ef-47f9-89c8-f3a7a99e0cf7</Guid>
+    <Name>Application Decomposition</Name>
+    <RolesGroup>
+      <Guid>381ea067-d755-4769-9f01-bb04de5d1675</Guid>
+      <Name>Roles</Name>
+      <UserRolesGroup>
+        <Guid>2e824c68-de25-4bba-b0ce-9e383e27ed43</Guid>
+        <Name>User Roles</Name>
+        <UserRoles>
+          <UserRole>
+            <Guid>83633fbd-a89b-4f3e-aec3-0c54810b86aa</Guid>
+            <Name>Developer</Name>
+            <AttributeValues>
+              <AttributeValues />
+            </AttributeValues>
+            <Description />
+          </UserRole>
+          <UserRole>
+            <Guid>1c423f8e-3321-4cd2-b515-8f543123c895</Guid>
+            <Name>Webmaster</Name>
+            <AttributeValues>
+              <AttributeValues />
+            </AttributeValues>
+            <Description />
+          </UserRole>
+          <UserRole>
+            <Guid>c918c034-0543-4884-95b3-5087ff241399</Guid>
+            <Name>Privileged User</Name>
+            <AttributeValues>
+              <AttributeValues />
+            </AttributeValues>
+            <Description />
+          </UserRole>
+          <UserRole>
+            <Guid>9d2e20dd-1f55-4ffc-b204-1fd7f6f98303</Guid>
+            <Name>Unprivileged User</Name>
+            <AttributeValues>
+              <AttributeValues />
+            </AttributeValues>
+            <Description />
+          </UserRole>
+        </UserRoles>
+      </UserRolesGroup>
+      <ServiceRolesGroup>
+        <Guid>26d4b740-3e7f-4aff-b920-3f86a219d8a8</Guid>
+        <Name>Service Roles</Name>
+        <ServiceRoles>
+          <ServiceRole>
+            <Guid>9ff2daa5-3e1d-49ae-a4c9-c71e16a86917</Guid>
+            <Name>Update Website</Name>
+            <AttributeValues>
+              <AttributeValues />
+            </AttributeValues>
+            <Description />
+          </ServiceRole>
+        </ServiceRoles>
+      </ServiceRolesGroup>
+    </RolesGroup>
+    <ComponentsGroup>
+      <Guid>e82b5666-669c-48d3-af4c-830643f1ef8d</Guid>
+      <Name>Components</Name>
+      <Components>
+        <Component>
+          <Guid>47816870-2117-4a58-beb1-d99272413b98</Guid>
+          <Name>Siging tool</Name>
+          <AttributeValues>
+            <AttributeValues />
+          </AttributeValues>
+          <Description />
+          <Type />
+          <IsDatastore>false</IsDatastore>
+          <ApplicationDataGuids />
+          <Objects />
+          <RoleGuids />
+          <RunAsGuid>00000000-0000-0000-0000-000000000000</RunAsGuid>
+        </Component>
+        <Component>
+          <Guid>d54f3999-8054-476e-bf84-ae49d680eba9</Guid>
+          <Name>Update component</Name>
+          <AttributeValues>
+            <AttributeValues />
+          </AttributeValues>
+          <Description />
+          <Type />
+          <IsDatastore>false</IsDatastore>
+          <ApplicationDataGuids />
+          <Objects />
+          <RoleGuids />
+          <RunAsGuid>00000000-0000-0000-0000-000000000000</RunAsGuid>
+        </Component>
+      </Components>
+    </ComponentsGroup>
+    <ApplicationDataGroup>
+      <Guid>86aee34a-548b-4ebb-bc62-f1f14583acf1</Guid>
+      <Name>Application Data</Name>
+      <ApplicationData>
+        <ApplicationData>
+          <Guid>809f06c7-ed79-45ed-aa33-6a12b3a4f701</Guid>
+          <Name>Update manifest</Name>
+          <AttributeValues>
+            <AttributeValues />
+          </AttributeValues>
+          <Description />
+          <DataElements />
+          <ConditionalAccessControlsGroup>
+            <Guid>2011f0b2-dd68-4f3c-a58f-2f18994cd249</Guid>
+            <Name>Conditional Access Control Group</Name>
+            <ConditionalAccessControls />
+          </ConditionalAccessControlsGroup>
+        </ApplicationData>
+        <ApplicationData>
+          <Guid>1142ebff-c682-4fee-9293-37b6c6c9edc7</Guid>
+          <Name>Update binary</Name>
+          <AttributeValues>
+            <AttributeValues />
+          </AttributeValues>
+          <Description />
+          <DataElements />
+          <ConditionalAccessControlsGroup>
+            <Guid>14422112-4476-4eca-b4c2-cbd55ce9e3d6</Guid>
+            <Name>Conditional Access Control Group</Name>
+            <ConditionalAccessControls />
+          </ConditionalAccessControlsGroup>
+        </ApplicationData>
+        <ApplicationData>
+          <Guid>b4eed4f3-e11f-43d7-80d2-47e2e2a69bf7</Guid>
+          <Name>Client Program</Name>
+          <AttributeValues>
+            <AttributeValues />
+          </AttributeValues>
+          <Description />
+          <DataElements />
+          <ConditionalAccessControlsGroup>
+            <Guid>a9b80e1d-fcc0-4259-9923-cc29e9cbfa0f</Guid>
+            <Name>Conditional Access Control Group</Name>
+            <ConditionalAccessControls />
+          </ConditionalAccessControlsGroup>
+        </ApplicationData>
+      </ApplicationData>
+    </ApplicationDataGroup>
+    <ExternalDependenciesGroup>
+      <Guid>372bfb7e-51f7-4de5-9bf8-eb2768b19bd9</Guid>
+      <Name>External Dependencies Group</Name>
+      <ExternalDependencies>
+        <ExternalDependency>
+          <Guid>0025d6e2-113c-4727-9841-363d084db30c</Guid>
+          <Name>Internet services</Name>
+          <AppID />
+          <Description>TCP, DNS, HTTP, etc</Description>
+        </ExternalDependency>
+      </ExternalDependencies>
+    </ExternalDependenciesGroup>
+  </ApplicationDecompositionGroup>
+  <ApplicationUseCasesGroup>
+    <Guid>45008e66-113b-460f-a5b7-214022762359</Guid>
+    <Name>Application Use Cases Group</Name>
+    <ApplicationUseCases>
+      <ApplicationUseCase>
+        <Guid>cb20a422-6f7c-47f7-be51-4026e979b3b4</Guid>
+        <Name>Unprivileged user attempts update</Name>
+        <Description />
+        <Calls />
+        <BusinessObjectiveGuids />
+      </ApplicationUseCase>
+      <ApplicationUseCase>
+        <Guid>828abfe8-2efd-4235-91ca-4534890f3acd</Guid>
+        <Name>Privileged attempts update</Name>
+        <Description />
+        <Calls />
+        <BusinessObjectiveGuids />
+      </ApplicationUseCase>
+      <ApplicationUseCase>
+        <Guid>37e3d5e5-d983-4531-befc-314323dade7d</Guid>
+        <Name>Application checks for update</Name>
+        <Description />
+        <Calls />
+        <BusinessObjectiveGuids />
+      </ApplicationUseCase>
+    </ApplicationUseCases>
+  </ApplicationUseCasesGroup>
+  <TaskLibrary>
+    <Guid>3488ef6d-0b0a-4222-b838-d22d6176b7c1</Guid>
+    <Name>Task Library</Name>
+    <CustomTasks>
+      <Guid>5fa13dc1-ffa9-4404-9993-5795e32f82bc</Guid>
+      <Name>Custom Tasks</Name>
+      <TaskItems />
+    </CustomTasks>
+  </TaskLibrary>
+  <Threats>
+    <Guid>714b639b-e951-46a7-b370-09be76a76c4a</Guid>
+    <Name>Threats</Name>
+    <Threats>
+      <Threat>
+        <Guid>4784a612-dbd7-43bc-b317-b70e6d78f527</Guid>
+        <Name>Threat 1</Name>
+        <Description />
+        <Justification />
+        <Risk>None</Risk>
+        <RiskRating>9</RiskRating>
+        <Cost>0</Cost>
+        <IsConfidentiality>true</IsConfidentiality>
+        <IsIntegrity>true</IsIntegrity>
+        <IsAvailability>true</IsAvailability>
+        <RiskParams />
+        <Impact>High</Impact>
+        <Probability>High</Probability>
+        <RoleGuids />
+        <CallsGuids />
+        <TaskItems />
+      </Threat>
+    </Threats>
+  </Threats>
+</ThreatModel>

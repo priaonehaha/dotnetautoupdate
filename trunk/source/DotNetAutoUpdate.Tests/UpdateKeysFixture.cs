@@ -38,5 +38,16 @@ namespace DotNetAutoUpdate.Tests
 
             Assert.That(newSignature, Is.EqualTo(originalSignature));
         }
+
+        [Test]
+        public void Check_public_key()
+        {
+            var keyPair = UpdateKeys.FromStrongNameKey("Data\\TestKeyPair.snk");
+
+            var rawPublicKey = keyPair.PublicKey;
+            var publicKey = UpdateKeys.FromPublicKey(rawPublicKey);
+
+            Assert.That(publicKey.PublicKey, Is.EqualTo(keyPair.PublicKey));
+        }
     }
 }
