@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAutoUpdateTool", "Dot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInstallerApp", "TestInstallerApp\TestInstallerApp.csproj", "{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebServer", "TestWebServer\TestWebServer.csproj", "{D4C78C29-8FE1-4101-8679-F17C86699099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{BDF30CF2-ED3E-466D-B537-008894DD48AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +66,22 @@ Global
 		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
 		{C58CA418-DBDD-4918-AFC3-F293FA8CDBDD}.Release2005|Any CPU.Build.0 = Release|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C78C29-8FE1-4101-8679-F17C86699099}.Release2005|Any CPU.Build.0 = Release|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Debug2005|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Debug2005|Any CPU.Build.0 = Debug|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Release2005|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF30CF2-ED3E-466D-B537-008894DD48AF}.Release2005|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

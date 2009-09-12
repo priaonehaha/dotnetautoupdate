@@ -13,3 +13,5 @@ glob:trunk/source/DotNetAutoUpdateTool/obj
 glob:trunk/source/DotNetAutoUpdate.Tests/DotNetAutoUpdate.Tests.csproj.user
 glob:trunk/source/TestInstallerApp/bin/
 glob:trunk/source/TestInstallerApp/obj/
+glob:trunk/source/TestApp/obj
+glob:trunk/source/TestWebServer/obj/

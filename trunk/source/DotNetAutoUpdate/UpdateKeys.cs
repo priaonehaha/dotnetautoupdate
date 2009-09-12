@@ -26,7 +26,7 @@ namespace DotNetAutoUpdate
         /// <summary>
         /// The raw public key data.
         /// </summary>
-        public byte[] PublicKey
+        public IList<byte> PublicKey
         {
             get
             {
@@ -96,9 +96,9 @@ namespace DotNetAutoUpdate
         /// </summary>
         /// <param name="publicKey">The data to load.</param>
         /// <returns>The update keys.</returns>
-        public static UpdateKeys FromPublicKey(byte[] publicKey)
+        public static UpdateKeys FromPublicKey(IEnumerable<byte> publicKey)
         {
-            var strongName = new StrongName(publicKey);
+            var strongName = new StrongName(publicKey.ToArray());
             return new UpdateKeys(strongName.RSA);
         }
     }

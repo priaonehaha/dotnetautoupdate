@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Updates>
+  <Update
+    NewVersion="1.0.0.0"
+    UpdateFileUri="http://localhost:12345/stable-installer.exe"
+    UpdateInfoUri="http://localhost:12345/update-info.html"
+    Categories="Stable, x86">
+    <Description>A sample stable update.</Description>
+  </Update>
+  <Update
+    NewVersion="2.0.0.0"
+    UpdateFileUri="http://localhost:12345/unstable-installer.exe"
+    UpdateInfoUri="http://localhost:12345/unstable-info.html"
+    Categories="Unstable, x86">
+    <Description>A sample unstable update.</Description>
+  </Update>
+</Updates>

@@ -56,6 +56,15 @@ namespace DotNetAutoUpdate
                    .Attributes("InstallFileName")
                    .Select(a => a.Value)
                    .FirstOrDefault();
+
+            var descriptionNode = updateXml
+                .Elements("Description")
+                .FirstOrDefault();
+
+            if (descriptionNode != null)
+            {
+                Description = descriptionNode.Value;
+            }
         }
 
         /// <summary>

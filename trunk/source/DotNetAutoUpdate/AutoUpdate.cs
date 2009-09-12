@@ -48,35 +48,43 @@ namespace DotNetAutoUpdate
             var uri = UpdateSettings.UpdatePath.AbsoluteUri;
             var signatureUri = new Uri(uri.ToString() + ".signature");
 
-            var webClient = new WebClient();
-            var rawXml = webClient.DownloadData(uri);
-            var signature = webClient.DownloadData(signatureUri);
-
-            // Check if the signature of the update XML is valid
-            if (!UpdateSettings.UpdateKeys.IsValidSignature(new MemoryStream(rawXml), signature))
+            try
             {
-                log.Warn("Invalid signature detected on update XML.");
-                InvalidSignatureDetected(this, new InvalidSignatureEventArgs());
+                var webClient = new WebClient();
+                var rawXml = webClient.DownloadData(uri);
+                var signature = webClient.DownloadData(signatureUri);
+
+                // Check if the signature of the update XML is valid
+                if (!UpdateSettings.UpdateKeys.IsValidSignature(new MemoryStream(rawXml), signature))
+                {
+                    log.Warn("Invalid signature detected on update XML.");
+                    InvalidSignatureDetected(this, new InvalidSignatureEventArgs());
+                    return false;
+                }
+
+                var xml = XDocument.Load(new StreamReader(new MemoryStream(rawXml)));
+                var updates = xml
+                    .Descendants("Update")
+                    .Select(updateXml => new PendingUpdate(updateXml));
+
+                var isUpdatePending = updates.Any(u => u.NewVersion > UpdateSettings.CurrentVersion);
+                if (isUpdatePending)
+                {
+                    log.Info("Found updated versions");
+                    PendingUpdates = updates.ToList();
+                }
+                else
+                {
+                    log.Debug("Current version still up to date.");
+                }
+
+                return isUpdatePending;
+            }
+            catch (WebException ex)
+            {
+                log.Info("Error checking for update: " + ex.Message, ex);
                 return false;
             }
-            
-            var xml = XDocument.Load(new StreamReader(new MemoryStream(rawXml)));
-            var updates = xml
-                .Descendants("Update")
-                .Select(updateXml => new PendingUpdate(updateXml));
-
-            var isUpdatePending = updates.Any(u => u.NewVersion > UpdateSettings.CurrentVersion);
-            if (isUpdatePending)
-            {
-                log.Info("Found updated versions");
-                PendingUpdates = updates.ToList();
-            }
-            else
-            {
-                log.Debug("Current version still up to date.");
-            }
-
-            return isUpdatePending;
         }
 
         /// <summary>
