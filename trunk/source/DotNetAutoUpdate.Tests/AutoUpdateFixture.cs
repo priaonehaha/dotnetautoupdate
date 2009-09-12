@@ -156,6 +156,18 @@ namespace DotNetAutoUpdate.Tests
             }
         }
 
+        [Test]
+        public void Should_return_false_on_server_missing()
+        {
+            var invalidUri = new Uri(_webServer.Uri, "bogus-path/");
+            _autoUpdate.UpdateSettings.UpdatePath = new Uri(invalidUri, "update-file-1.1.0.0.xml");
+            _autoUpdate.UpdateSettings.CurrentVersion = new Version("1.0.0.0");
+
+            var result = _autoUpdate.IsUpdatePending();
+
+            Assert.That(result, Is.False);
+        }
+
         [TearDown]
         public void TearDown()
         {
