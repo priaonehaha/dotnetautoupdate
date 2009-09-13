@@ -93,6 +93,17 @@ namespace DotNetAutoUpdate
         /// <param name="pendingUpdate">The update to install.</param>
         public void InstallPendingUpdate(PendingUpdate pendingUpdate)
         {
+            InstallPendingUpdate(pendingUpdate, (progress) => { }, () => { });
+        }
+
+        /// <summary>
+        /// Installs the given pending update.
+        /// </summary>
+        /// <param name="pendingUpdate">The update to install.</param>
+        /// <param name="downloadProgress">The action to callback with download progress updates.</param>
+        /// <param name="installerStarted">The action called when the installer has started.</param>
+        public void InstallPendingUpdate(PendingUpdate pendingUpdate, Action<double> downloadProgress, Action installerStarted)
+        {
             log.Info("Installing update: " + pendingUpdate);
             if (pendingUpdate == null)
             {
@@ -123,10 +134,16 @@ namespace DotNetAutoUpdate
                 log.Info("Downloading install file: " + pendingUpdate.UpdateFileUri);
                 using (var inputStream = webClient.OpenRead(pendingUpdate.UpdateFileUri))
                 {
+                    long length;
+                    bool hasLength = webClient.TryGetContentLength(out length);
+                    long totalRead = 0;
                     var bytesRead = inputStream.Read(buffer, 0, buffer.Length);
 
                     while (bytesRead > 0)
                     {
+                        totalRead += bytesRead;
+                        UpdateProgress(downloadProgress, hasLength, totalRead, length);
+
                         fileStream.Write(buffer, 0, bytesRead);
                         bytesRead = inputStream.Read(buffer, 0, buffer.Length);
                     }
@@ -158,8 +175,18 @@ namespace DotNetAutoUpdate
             // the lock on the file.
             log.Info("Running install file: " + installPath);
             var process = Process.Start(psi);
+            installerStarted();
 
             process.WaitForExit();
+        }
+
+        [CoverageExclude]
+        private void UpdateProgress(Action<double> downloadProgress, bool hasLength, long totalRead, long length)
+        {
+            if (hasLength)
+            {
+                downloadProgress((double)totalRead / length);
+            }
         }
     }
 }

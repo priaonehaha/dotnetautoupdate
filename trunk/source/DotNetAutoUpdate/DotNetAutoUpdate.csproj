@@ -67,6 +67,7 @@
     <Compile Include="StringExtensionMethods.cs" />
     <Compile Include="UpdateKeys.cs" />
     <Compile Include="UpdateSettings.cs" />
+    <Compile Include="WebClientExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DotNetAutoUpdate.snk" />

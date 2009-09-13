@@ -55,9 +55,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\unstable-installer.exe" />
+    <Content Include="Data\stable-installer.exe" />
     <Content Include="Data\update.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\unstable-installer.exe.signature" />
+    <None Include="Data\stable-installer.exe.signature" />
     <None Include="Data\update.xml.signature" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
