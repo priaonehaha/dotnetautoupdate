@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="AutoUpdate.cs" />
     <Compile Include="CoverageExcludeAttribute.cs" />
+    <Compile Include="IAutoUpdate.cs" />
     <Compile Include="InvalidSignatureEventArgs.cs" />
     <Compile Include="PendingUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

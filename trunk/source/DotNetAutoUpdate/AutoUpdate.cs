@@ -15,7 +15,7 @@ namespace DotNetAutoUpdate
     /// <summary>
     /// The class that checks and performs updates.
     /// </summary>
-    public class AutoUpdate
+    public class AutoUpdate : IAutoUpdate
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(AutoUpdate));
 
