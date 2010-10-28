@@ -45,14 +45,14 @@ namespace DotNetAutoUpdate
 
         protected static byte[] GetHashForStream(Stream input)
         {
-            var sha1 = new SHA1Managed();
-            return sha1.ComputeHash(input);
+            var sha256 = new SHA256Managed();
+            return sha256.ComputeHash(input);
         }
 
         public bool IsValidSignature(Stream input, byte[] signature)
         {
             var signatureFormatter = new RSAPKCS1SignatureDeformatter(RSA);
-            signatureFormatter.SetHashAlgorithm("SHA1");
+            signatureFormatter.SetHashAlgorithm("SHA256");
             return signatureFormatter.VerifySignature(GetHashForStream(input), signature); 
         }
 
@@ -72,7 +72,7 @@ namespace DotNetAutoUpdate
         public void SignFile(string inputFile, string signatureFile)
         {
             var signatureFormatter = new RSAPKCS1SignatureFormatter(RSA);
-            signatureFormatter.SetHashAlgorithm("SHA1");
+            signatureFormatter.SetHashAlgorithm("SHA256");
 
             var hash = GetHashForFile(inputFile);
             var signature = signatureFormatter.CreateSignature(hash);
